@@ -66,7 +66,6 @@ import {
   Video,
   WandSparkles,
   Workflow,
-  Zap,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -581,29 +580,52 @@ function LaserFlowSection() {
               </p>
             </div>
 
-            <div className="relative rounded-[28px] syncrio-glass-card p-5 sm:p-6">
-              <div className="absolute inset-0 rounded-[28px] syncrio-scanlines opacity-[0.12]" />
-              <div className="relative rounded-[22px] border border-white/10 bg-[linear-gradient(180deg,rgba(8,8,14,0.92),rgba(4,4,8,0.98))] p-6">
-                <div className="mb-4 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.28em] text-atomic-muted">
-                  <span>Retro transmission demo</span>
-                  <PlayCircle className="h-4 w-4 text-signal-cyan" />
-                </div>
-                <div className="relative min-h-[240px] overflow-hidden rounded-[20px] border border-white/8 bg-[radial-gradient(circle_at_50%_40%,rgba(164,13,195,0.22),transparent_34%),linear-gradient(180deg,rgba(9,9,12,0.92),rgba(7,7,10,0.98))]">
-                  <div className="absolute inset-0 syncrio-scanlines opacity-[0.18]" />
-                  <div className="absolute inset-x-[20%] top-[48%] h-px signal-line" />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-                    <div className="rounded-full border border-white/10 bg-white/5 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.26em] text-atomic-muted">
-                      Coming soon
+            <Dialog>
+              <DialogTrigger asChild>
+                <button type="button" className="relative rounded-[28px] syncrio-glass-card p-5 text-left transition-transform duration-300 hover:-translate-y-1 sm:p-6">
+                  <div className="absolute inset-0 rounded-[28px] syncrio-scanlines opacity-[0.12]" />
+                  <div className="relative rounded-[22px] border border-white/10 bg-[linear-gradient(180deg,rgba(8,8,14,0.92),rgba(4,4,8,0.98))] p-6">
+                    <div className="mb-4 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.28em] text-atomic-muted">
+                      <span>Retro transmission demo</span>
+                      <PlayCircle className="h-4 w-4 text-signal-cyan" />
                     </div>
-                    <h4 className="mt-5 font-display text-3xl text-atomic-cream">See Syncrio in motion.</h4>
-                    <p className="mt-3 max-w-md text-sm leading-7 text-atomic-muted sm:text-base">
-                      Coming soon: see Syncrio sync devices, resources, and CHIP actions in one
-                      flow.
+                    <div className="relative min-h-[240px] overflow-hidden rounded-[20px] border border-white/8 bg-[radial-gradient(circle_at_50%_40%,rgba(164,13,195,0.22),transparent_34%),linear-gradient(180deg,rgba(9,9,12,0.92),rgba(7,7,10,0.98))]">
+                      <div className="absolute inset-0 syncrio-scanlines opacity-[0.18]" />
+                      <div className="absolute inset-x-[20%] top-[48%] h-px signal-line" />
+                      <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
+                        <div className="rounded-full border border-white/10 bg-white/5 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.26em] text-atomic-muted">
+                          Coming soon
+                        </div>
+                        <h4 className="mt-5 font-display text-3xl text-atomic-cream">See Syncrio in motion.</h4>
+                        <p className="mt-3 max-w-md text-sm leading-7 text-atomic-muted sm:text-base">
+                          Coming soon: see Syncrio sync devices, resources, and CHIP actions in one
+                          flow.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </button>
+              </DialogTrigger>
+              <DialogContent className="max-w-2xl rounded-[28px] border-white/10 bg-[linear-gradient(180deg,rgba(10,10,14,0.96),rgba(5,5,8,0.98))] p-0 text-atomic-white">
+                <DialogHeader className="border-b border-white/8 px-6 py-5">
+                  <DialogTitle className="font-display text-3xl text-atomic-cream">Retro Transmission Demo</DialogTitle>
+                  <DialogDescription className="text-base leading-7 text-atomic-muted">
+                    This cinematic placeholder will become the WandaVision-style explainer showing Syncrio syncing devices, resources, and CHIP review-aware actions.
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="p-6">
+                  <div className="rounded-[24px] border border-white/10 bg-[radial-gradient(circle_at_50%_35%,rgba(164,13,195,0.18),transparent_32%),linear-gradient(180deg,rgba(9,9,12,0.92),rgba(7,7,10,0.98))] p-8 text-center syncrio-scanlines">
+                    <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white/5">
+                      <PlayCircle className="h-7 w-7 text-signal-cyan" />
+                    </div>
+                    <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.28em] text-atomic-muted">Transmission placeholder</p>
+                    <p className="mt-4 text-base leading-8 text-atomic-muted">
+                      The future video slot is reserved here so the flow section already has the right framing, chrome treatment, and interactive affordance.
                     </p>
                   </div>
                 </div>
-              </div>
-            </div>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </div>
@@ -722,7 +744,7 @@ function WorkspaceMesh() {
 function ChipProofSection() {
   const outputs = [
     {
-      icon: Bell,
+      icon: CalendarClock,
       title: "Reminder",
       body: "Call Bob · Thu 1:00 PM",
     },
@@ -756,51 +778,82 @@ function ChipProofSection() {
       </p>
 
       <div className="mx-auto mt-14 max-w-6xl overflow-hidden rounded-[34px] syncrio-glass-card p-6 sm:p-8 lg:p-10">
-        <div className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr]">
-          <div className="rounded-[28px] border border-white/8 bg-[linear-gradient(180deg,rgba(10,10,14,0.92),rgba(5,5,8,0.98))] p-6">
-            <div className="mb-4 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.28em] text-atomic-muted">
-              <span>CHIP command console</span>
-              <span>review-aware routing</span>
-            </div>
-            <div className="rounded-[20px] border border-[oklch(0.797_0.134_211.53_/_0.18)] bg-[rgba(8,8,14,0.82)] p-5 syncrio-scanlines">
-              <BlurText
-                text="CHIP, remind me to call Bob at 1 PM Thursday, save this article to research, and turn the meeting idea into a task list."
-                className="font-serif text-2xl leading-[1.45] text-atomic-white sm:text-[2rem]"
-              />
-            </div>
-            <div className="mt-5 font-mono text-[10px] uppercase tracking-[0.26em] text-atomic-muted">
-              CHIP operates with review and permission
-            </div>
-          </div>
+        <Tabs defaultValue="command" className="w-full">
+          <TabsList className="mx-auto grid w-full max-w-[420px] grid-cols-2 rounded-full border border-white/10 bg-[rgba(8,8,14,0.8)] p-1">
+            <TabsTrigger value="command" className="rounded-full font-mono text-[10px] uppercase tracking-[0.24em] data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+              Command
+            </TabsTrigger>
+            <TabsTrigger value="outputs" className="rounded-full font-mono text-[10px] uppercase tracking-[0.24em] data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+              Outputs
+            </TabsTrigger>
+          </TabsList>
+          <TabsContent value="command" className="mt-8">
+            <div className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr]">
+              <div className="rounded-[28px] border border-white/8 bg-[linear-gradient(180deg,rgba(10,10,14,0.92),rgba(5,5,8,0.98))] p-6">
+                <div className="mb-4 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.28em] text-atomic-muted">
+                  <span>CHIP command console</span>
+                  <span>review-aware routing</span>
+                </div>
+                <div className="rounded-[20px] border border-[oklch(0.797_0.134_211.53_/_0.18)] bg-[rgba(8,8,14,0.82)] p-5 syncrio-scanlines">
+                  <BlurText
+                    text="CHIP, remind me to call Bob at 1 PM Thursday, save this article to research, and turn the meeting idea into a task list."
+                    className="font-serif text-2xl leading-[1.45] text-atomic-white sm:text-[2rem]"
+                  />
+                </div>
+                <div className="mt-5 font-mono text-[10px] uppercase tracking-[0.26em] text-atomic-muted">
+                  CHIP operates with review and permission
+                </div>
+              </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            {outputs.map((output, index) => {
-              const Icon = output.icon;
-              return (
-                <motion.div
-                  key={output.title}
-                  initial={{ opacity: 0, y: 20, scale: 0.96 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  viewport={{ once: true, amount: 0.35 }}
-                  transition={{ duration: 0.55, delay: 0.18 + index * 0.1 }}
-                >
-                  <Card className="syncrio-panel h-full rounded-[24px] border-none p-5">
-                    <div className="relative z-10 flex h-full flex-col">
-                      <div className="mb-4 flex items-center justify-between">
-                        <div className="flex h-11 w-11 items-center justify-center rounded-[14px] border border-white/10 bg-white/5">
-                          <Icon className="h-5 w-5 text-signal-cyan" />
-                        </div>
-                        <CheckCircle2 className="h-5 w-5 text-signal-green" />
-                      </div>
-                      <div className="font-display text-2xl text-atomic-white">{output.title}</div>
-                      <div className="mt-2 text-sm leading-7 text-atomic-muted">{output.body}</div>
+              <div className="rounded-[28px] border border-white/8 bg-[linear-gradient(180deg,rgba(10,10,14,0.92),rgba(5,5,8,0.98))] p-6">
+                <div className="mb-4 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.28em] text-atomic-muted">
+                  <span>Intent routing</span>
+                  <span>visible next steps</span>
+                </div>
+                <div className="space-y-4">
+                  {[
+                    "Interpret the request inside shared context.",
+                    "Route outputs into the synced workspace.",
+                    "Keep review and permission in the loop.",
+                  ].map((step) => (
+                    <div key={step} className="rounded-[18px] border border-white/8 bg-white/5 px-4 py-4 text-sm leading-7 text-atomic-muted">
+                      {step}
                     </div>
-                  </Card>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </TabsContent>
+          <TabsContent value="outputs" className="mt-8">
+            <div className="grid gap-4 sm:grid-cols-2">
+              {outputs.map((output, index) => {
+                const Icon = output.icon;
+                return (
+                  <motion.div
+                    key={output.title}
+                    initial={{ opacity: 0, y: 20, scale: 0.96 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    viewport={{ once: true, amount: 0.35 }}
+                    transition={{ duration: 0.55, delay: 0.18 + index * 0.1 }}
+                  >
+                    <Card className="syncrio-panel h-full rounded-[24px] border-none p-5">
+                      <div className="relative z-10 flex h-full flex-col">
+                        <div className="mb-4 flex items-center justify-between">
+                          <div className="flex h-11 w-11 items-center justify-center rounded-[14px] border border-white/10 bg-white/5">
+                            <Icon className="h-5 w-5 text-signal-cyan" />
+                          </div>
+                          <CheckCircle2 className="h-5 w-5 text-signal-green" />
+                        </div>
+                        <div className="font-display text-2xl text-atomic-white">{output.title}</div>
+                        <div className="mt-2 text-sm leading-7 text-atomic-muted">{output.body}</div>
+                      </div>
+                    </Card>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </TabsContent>
+        </Tabs>
       </div>
     </Section>
   );
