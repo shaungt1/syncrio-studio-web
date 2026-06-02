@@ -258,4 +258,14 @@
   }
 
   .text-shadow-atomic { text-shadow: 0 2px 0 oklch(0.76 0.18 55 / 0.4), 0 4px 20px oklch(0.86 0.18 180 / 0.4); }
+
+  .atomic-input {
+    background-color: oklch(0.16 0.04 250 / 0.6) !important;
+    border: 1px solid oklch(0.82 0.02 85 / 0.25) !important;
+    color: var(--cream) !important;
+  }
+  .atomic-input:focus-visible {
+    border-color: var(--teal) !important;
+    box-shadow: 0 0 0 3px oklch(0.86 0.18 180 / 0.2) !important;
+  }
 }
