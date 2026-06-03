@@ -268,4 +268,177 @@
     border-color: var(--teal) !important;
     box-shadow: 0 0 0 3px oklch(0.86 0.18 180 / 0.2) !important;
   }
+
+  /* ─── SYNCRIO THEME UTILITIES (purple / cyan / deep zinc) ─── */
+  .syncrio-page-bg {
+    background-color: oklch(0.145 0.012 289);
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, oklch(0.529 0.249 319.033 / 0.18), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 100% 100%, oklch(0.797 0.134 211.53 / 0.08), transparent 60%);
+    background-attachment: fixed;
+  }
+
+  .text-atomic-white { color: oklch(0.97 0.01 85); }
+  .text-atomic-cream { color: oklch(0.94 0.06 85); }
+  .text-atomic-muted { color: oklch(0.72 0.03 285); }
+  .text-signal-cyan { color: oklch(0.797 0.134 211.53); }
+  .text-signal-green { color: oklch(0.78 0.22 145); }
+
+  .syncrio-glass-card {
+    background: linear-gradient(180deg, oklch(0.20 0.03 290 / 0.92), oklch(0.14 0.012 289 / 0.96));
+    border: 1px solid oklch(0.82 0.02 85 / 0.14);
+    box-shadow: inset 0 1px 0 oklch(0.94 0.06 85 / 0.06), 0 30px 60px -20px oklch(0 0 0 / 0.55);
+    position: relative;
+  }
+  .syncrio-glass-card::before {
+    content: "";
+    position: absolute; inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, oklch(0.529 0.249 319.033 / 0.55), transparent 40%, oklch(0.797 0.134 211.53 / 0.45));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .syncrio-panel {
+    background: linear-gradient(180deg, oklch(0.23 0.05 290) 0%, oklch(0.16 0.03 290) 100%);
+    border: 1px solid oklch(0.82 0.02 85 / 0.14);
+    box-shadow: inset 0 1px 0 oklch(0.94 0.06 85 / 0.08), 0 20px 50px -15px oklch(0 0 0 / 0.5);
+    position: relative;
+  }
+  .syncrio-panel::before {
+    content: "";
+    position: absolute; inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, oklch(0.529 0.249 319.033 / 0.5), transparent 40%, oklch(0.797 0.134 211.53 / 0.4));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .syncrio-cta {
+    background: linear-gradient(135deg, oklch(0.529 0.249 319.033), oklch(0.40 0.18 280));
+    color: oklch(0.97 0.01 85);
+    border: 1px solid oklch(0.529 0.249 319.033 / 0.4);
+    box-shadow: 0 0 20px oklch(0.529 0.249 319.033 / 0.3), 0 8px 24px -8px oklch(0 0 0 / 0.4);
+    transition: all 0.3s ease;
+  }
+  .syncrio-cta:hover {
+    box-shadow: 0 0 30px oklch(0.529 0.249 319.033 / 0.45), 0 8px 24px -8px oklch(0 0 0 / 0.4);
+    transform: translateY(-1px);
+  }
+
+  .syncrio-badge {
+    background: oklch(0.18 0.015 290 / 0.85);
+    border: 1px solid oklch(0.82 0.02 85 / 0.12);
+    color: oklch(0.72 0.03 285);
+  }
+
+  .syncrio-input {
+    background-color: oklch(0.145 0.012 289 / 0.7) !important;
+    border: 1px solid oklch(0.82 0.02 85 / 0.18) !important;
+    color: oklch(0.94 0.06 85) !important;
+  }
+  .syncrio-input:focus-visible {
+    border-color: oklch(0.797 0.134 211.53) !important;
+    box-shadow: 0 0 0 3px oklch(0.797 0.134 211.53 / 0.15) !important;
+  }
+
+  .syncrio-gradient-text {
+    background: linear-gradient(135deg, oklch(0.529 0.249 319.033), oklch(0.797 0.134 211.53));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-shadow-syncrio {
+    text-shadow: 0 2px 0 oklch(0.529 0.249 319.033 / 0.35), 0 4px 20px oklch(0.797 0.134 211.53 / 0.3);
+  }
+
+  .nav-glow {
+    box-shadow: 0 1px 0 oklch(0.529 0.249 319.033 / 0.2), 0 20px 40px -12px oklch(0 0 0 / 0.5);
+  }
+
+  .syncrio-grid {
+    background-image:
+      linear-gradient(oklch(0.529 0.249 319.033 / 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(0.529 0.249 319.033 / 0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black, transparent 75%);
+  }
+
+  .syncrio-scanlines {
+    background-image: repeating-linear-gradient(
+      0deg,
+      oklch(0.94 0.06 85 / 0.025) 0px,
+      oklch(0.94 0.06 85 / 0.025) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  }
+
+  .syncrio-film-grain {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 200px 200px;
+  }
+
+  .starburst-purple {
+    background: conic-gradient(from 0deg,
+      oklch(0.529 0.249 319.033) 0deg 5deg, transparent 5deg 30deg,
+      oklch(0.529 0.249 319.033) 30deg 35deg, transparent 35deg 60deg,
+      oklch(0.529 0.249 319.033) 60deg 65deg, transparent 65deg 90deg,
+      oklch(0.529 0.249 319.033) 90deg 95deg, transparent 95deg 120deg,
+      oklch(0.529 0.249 319.033) 120deg 125deg, transparent 125deg 150deg,
+      oklch(0.529 0.249 319.033) 150deg 155deg, transparent 155deg 180deg,
+      oklch(0.529 0.249 319.033) 180deg 185deg, transparent 185deg 210deg,
+      oklch(0.529 0.249 319.033) 210deg 215deg, transparent 215deg 240deg,
+      oklch(0.529 0.249 319.033) 240deg 245deg, transparent 245deg 270deg,
+      oklch(0.529 0.249 319.033) 270deg 275deg, transparent 275deg 300deg,
+      oklch(0.529 0.249 319.033) 300deg 305deg, transparent 305deg 330deg,
+      oklch(0.529 0.249 319.033) 330deg 335deg, transparent 335deg 360deg);
+  }
+
+  .hud-dots {
+    background-image: radial-gradient(circle, oklch(0.82 0.02 85 / 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .core-glow {
+    box-shadow: 0 0 40px oklch(0.529 0.249 319.033 / 0.35), 0 0 80px oklch(0.529 0.249 319.033 / 0.15), inset 0 1px 0 oklch(0.94 0.06 85 / 0.1);
+  }
+
+  .soft-pulse {
+    animation: soft-pulse 4s ease-in-out infinite;
+  }
+  @keyframes soft-pulse {
+    0%, 100% { opacity: 0.5; box-shadow: 0 0 20px oklch(0.529 0.249 319.033 / 0.25); }
+    50% { opacity: 0.85; box-shadow: 0 0 35px oklch(0.529 0.249 319.033 / 0.45), 0 0 60px oklch(0.797 0.134 211.53 / 0.2); }
+  }
+
+  .orbit-spin {
+    animation: orbit-spin 12s linear infinite;
+  }
+  @keyframes orbit-spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .signal-line {
+    background: linear-gradient(90deg, transparent, oklch(0.797 0.134 211.53 / 0.7), oklch(0.529 0.249 319.033 / 0.5), transparent);
+    box-shadow: 0 0 8px oklch(0.797 0.134 211.53 / 0.4);
+  }
+
+  .neon-flicker {
+    animation: neon-flicker 4s ease-in-out infinite;
+  }
+  @keyframes neon-flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.75; }
+    52% { opacity: 0.3; }
+    54% { opacity: 0.9; }
+    56% { opacity: 0.5; }
+    58% { opacity: 1; }
+  }
 }
