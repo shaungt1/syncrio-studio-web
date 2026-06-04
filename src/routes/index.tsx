@@ -800,7 +800,7 @@ function WorkspaceMesh() {
       <div className="absolute left-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/12 bg-[radial-gradient(circle,rgba(164,13,195,0.22)_0%,rgba(47,107,255,0.12)_44%,rgba(7,7,10,0.96)_76%)] core-glow">
         <div className="absolute inset-5 rounded-full border border-white/8" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-          <ThreeLoopAtom className="mb-3 h-8 w-8 text-signal-cyan" />
+          <RetroAtom className="mb-3 h-9 w-9 text-signal-cyan" />
           <span className="font-display text-[2rem] leading-none text-atomic-white">SYNCRIO</span>
           <span className="mt-1 font-mono text-[11px] uppercase tracking-[0.28em] text-atomic-muted">
             Workspace
