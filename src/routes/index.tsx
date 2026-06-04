@@ -1276,7 +1276,7 @@ function Section({
 function ThreeLoopAtom({ className }: { className?: string }) {
   return (
     <div className={`relative ${className ?? ""}`}>
-      <Atom className="h-full w-full opacity-0" />
+      <span className="block h-full w-full opacity-0" />
       <span className="absolute inset-0 rounded-full border border-current opacity-90" />
       <span className="absolute inset-0 rounded-full border border-current opacity-70 [transform:rotate(58deg)_scaleX(1.18)]" />
       <span className="absolute inset-0 rounded-full border border-current opacity-65 [transform:rotate(-58deg)_scaleX(1.18)]" />
