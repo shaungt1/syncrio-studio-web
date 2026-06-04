@@ -229,7 +229,7 @@ function NavBar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-border/80 bg-[oklch(0.145_0.012_289_/_0.72)] px-4 py-3 backdrop-blur-xl nav-glow sm:px-6">
         <a href="#top" className="flex items-center gap-3">
           <div className="relative flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-[oklch(0.178_0.016_290.359_/_0.84)]">
-            <ThreeLoopAtom className="h-6 w-6 text-signal-cyan" />
+            <RetroAtom className="h-7 w-7 text-signal-cyan" />
             <div className="absolute inset-0 rounded-full soft-pulse" />
           </div>
           <div>
@@ -1327,7 +1327,7 @@ function Footer() {
     <footer className="relative z-10 border-t border-white/8 px-4 py-10 sm:px-6 lg:px-8">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 sm:flex-row">
         <div className="flex items-center gap-3">
-          <ThreeLoopAtom className="h-5 w-5 text-signal-cyan" />
+          <RetroAtom className="h-6 w-6 text-signal-cyan" />
           <span className="font-display text-xl text-atomic-cream">SYNCRIO</span>
           <Separator orientation="vertical" className="h-4 bg-white/10" />
           <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-atomic-muted">
