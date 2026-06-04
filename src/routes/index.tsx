@@ -228,8 +228,8 @@ function NavBar() {
 
 function HeroSection() {
   return (
-    <section id="top" className="relative z-10 px-4 pb-20 pt-10 sm:px-6 lg:px-8 lg:pb-28 lg:pt-16">
-      <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[minmax(0,1.02fr)_minmax(440px,0.98fr)]">
+    <section id="top" className="relative z-10 min-h-[calc(100vh-6rem)] w-full px-4 pb-24 pt-10 sm:px-6 lg:px-12 lg:pb-32 lg:pt-16">
+      <div className="mx-auto grid w-full max-w-[1600px] items-center gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(520px,1fr)]">
         <motion.div initial="hidden" animate="visible" variants={sectionReveal} className="relative">
           <div className="absolute -left-3 top-4 h-16 w-16 rounded-full starburst-purple opacity-40 blur-[0.5px]" />
           <Badge className="syncrio-badge relative mb-6 rounded-full px-4 py-2 font-mono text-[11px] uppercase tracking-[0.28em] shadow-none">
@@ -270,7 +270,7 @@ function HeroSection() {
           transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1], delay: 0.12 }}
           className="relative"
         >
-          <HeroReactor />
+          <HeroLaserStage />
         </motion.div>
       </div>
     </section>
