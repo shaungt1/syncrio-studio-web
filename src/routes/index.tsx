@@ -553,7 +553,24 @@ function LaserFlowSection() {
       </p>
 
       <div className="relative mx-auto mt-14 min-h-[640px] max-w-6xl overflow-hidden rounded-[34px] border border-white/8 bg-[linear-gradient(180deg,rgba(5,5,8,0.96),rgba(9,9,11,0.98))] p-6 sm:p-8">
-        <LaserFlow className="opacity-90" color="#5E0CAE" glowColor="#A40DC3" edgeColor="#22D3EE" />
+        <div className="pointer-events-none absolute inset-0">
+          <LaserFlow
+            color="#6a0ec4"
+            horizontalBeamOffset={0.5}
+            verticalBeamOffset={0.0}
+            horizontalSizing={0.64}
+            verticalSizing={4.1}
+            wispDensity={2.9}
+            wispSpeed={32}
+            wispIntensity={7.6}
+            flowStrength={0.08}
+            fogIntensity={0.91}
+            fogScale={0.1}
+            fogFallSpeed={0.45}
+            decay={2.19}
+            falloffStart={0.77}
+          />
+        </div>
         <div className="absolute inset-0 syncrio-scanlines opacity-[0.1]" />
 
         <div className="relative z-10 flex h-full flex-col justify-between gap-10">
