@@ -1302,17 +1302,10 @@ function FinalCtaCard() {
       <GradualBlur className="bottom-[-1rem] h-36" colorA="rgba(164,13,195,0.26)" colorB="rgba(34,211,238,0.12)" />
       <div className="relative z-10">
         <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.24em] text-atomic-muted neon-flicker">
-          <ThreeLoopAtom className="h-4 w-4 text-signal-cyan" />
+          <RetroAtom className="h-4 w-4 text-signal-cyan" spin={false} />
           Syncrio signal live
         </div>
-        <h3 className="font-display text-4xl leading-[0.94] text-atomic-cream sm:text-5xl">
-          LESS SEARCHING.
-          <br />
-          LESS SWITCHING.
-          <br />
-          LESS FORGETTING.
-        </h3>
-        <p className="mx-auto mt-5 max-w-lg text-base leading-8 text-atomic-muted sm:text-lg">
+        <p className="mx-auto max-w-2xl text-base leading-8 text-atomic-muted sm:text-lg">
           Join the early-access list and help shape the workspace that syncs your devices,
           connects your resources, and gives CHIP a place to help.
         </p>
