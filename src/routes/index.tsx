@@ -37,11 +37,12 @@ import GradualBlur from "@/components/react-bits/GradualBlur";
 import BlurText from "@/components/react-bits/BlurText";
 import LiquidEther from "@/components/react-bits/LiquidEther";
 import LaserFlow from "@/components/react-bits/LaserFlow";
+import BlurSlideshow from "@/components/syncrio/BlurSlideshow";
+import RetroAtom from "@/components/syncrio/RetroAtom";
 import { Toaster } from "@/components/ui/sonner";
 import { toast } from "sonner";
 import {
   ArrowRight,
-  Atom,
   AudioLines,
   Bell,
   BrainCircuit,
