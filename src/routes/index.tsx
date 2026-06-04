@@ -1132,7 +1132,7 @@ function EarlyAccessSection() {
       </p>
 
       <div className="mx-auto mt-14 grid max-w-6xl gap-8 lg:grid-cols-[1fr_0.88fr]">
-        <form onSubmit={submitProfile} className="syncrio-glass-card rounded-[30px] p-6 sm:p-8">
+        <form onSubmit={submitProfile} className="syncrio-glass-card rounded-[30px] p-6 sm:p-8 lg:col-span-2 lg:max-w-3xl lg:mx-auto lg:w-full">
           <div className="grid gap-5">
             <Field label="Persona">
               <Select>
@@ -1213,11 +1213,36 @@ function EarlyAccessSection() {
             </Button>
           </div>
         </form>
+      </div>
+    </Section>
+  );
+}
 
-        <div className="space-y-8">
-          <FaqPanel />
-          <FinalCtaCard />
-        </div>
+function FaqSection() {
+  return (
+    <Section
+      id="faq"
+      eyebrow="Section 08 · Frequencies"
+      title="QUESTIONS"
+      accent="ANSWERED ON THE SAME FREQUENCY."
+    >
+      <div className="mx-auto max-w-4xl">
+        <FaqPanel />
+      </div>
+    </Section>
+  );
+}
+
+function FinalCtaSection() {
+  return (
+    <Section
+      id="signal"
+      eyebrow="Section 09 · Signal"
+      title="LESS SEARCHING."
+      accent="LESS SWITCHING. LESS FORGETTING."
+    >
+      <div className="mx-auto max-w-5xl">
+        <FinalCtaCard />
       </div>
     </Section>
   );
