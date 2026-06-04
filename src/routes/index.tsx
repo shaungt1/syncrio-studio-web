@@ -203,6 +203,8 @@ function Index() {
         <CategorySection />
         <TrustSection />
         <EarlyAccessSection />
+        <FaqSection />
+        <FinalCtaSection />
       </main>
       <Footer />
     </div>
