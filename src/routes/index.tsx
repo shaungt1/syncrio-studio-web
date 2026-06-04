@@ -150,6 +150,44 @@ const workspaceNodes = [
   { icon: FileText, label: "Documents" },
 ];
 
+/**
+ * Hero slideshow placeholder slides — replace `content` with `{ src: "/your-image.jpg" }`
+ * to drop in real screenshots, GIFs, or video posters later. The component lives at
+ * `src/components/syncrio/BlurSlideshow.tsx` and blur-dissolves in place.
+ */
+const heroSlides = [
+  {
+    alt: "Syncrio sync core scene",
+    content: (
+      <div className="flex h-full w-full flex-col items-center justify-center bg-[radial-gradient(circle_at_50%_45%,rgba(106,14,196,0.35),rgba(8,8,14,0.96))] p-8 text-center">
+        <div className="font-mono text-[10px] uppercase tracking-[0.32em] text-signal-cyan">Slide 01 · Sync Core</div>
+        <div className="mt-3 font-display text-3xl text-atomic-cream sm:text-4xl">DEVICES CONVERGE.</div>
+        <p className="mt-3 max-w-md text-sm leading-7 text-atomic-muted">Drop your video, GIF, or screenshots here. The slideshow blurs and dissolves between frames in place.</p>
+      </div>
+    ),
+  },
+  {
+    alt: "Resource flow scene",
+    content: (
+      <div className="flex h-full w-full flex-col items-center justify-center bg-[radial-gradient(circle_at_50%_45%,rgba(34,211,238,0.22),rgba(8,8,14,0.96))] p-8 text-center">
+        <div className="font-mono text-[10px] uppercase tracking-[0.32em] text-signal-cyan">Slide 02 · Resource Flow</div>
+        <div className="mt-3 font-display text-3xl text-atomic-cream sm:text-4xl">RESOURCES MOVE WITH YOU.</div>
+        <p className="mt-3 max-w-md text-sm leading-7 text-atomic-muted">Files, links, notes, media — synced across desktop, mobile, tablet, and browser.</p>
+      </div>
+    ),
+  },
+  {
+    alt: "CHIP intelligence scene",
+    content: (
+      <div className="flex h-full w-full flex-col items-center justify-center bg-[radial-gradient(circle_at_50%_45%,rgba(168,85,247,0.32),rgba(8,8,14,0.96))] p-8 text-center">
+        <div className="font-mono text-[10px] uppercase tracking-[0.32em] text-signal-cyan">Slide 03 · CHIP Layer</div>
+        <div className="mt-3 font-display text-3xl text-atomic-cream sm:text-4xl">CHIP TURNS INTENT INTO ACTION.</div>
+        <p className="mt-3 max-w-md text-sm leading-7 text-atomic-muted">Say it once. Review what CHIP plans. Approve. Done.</p>
+      </div>
+    ),
+  },
+];
+
 function Index() {
   return (
     <div className="relative min-h-screen overflow-x-hidden text-atomic-white syncrio-page-bg">
