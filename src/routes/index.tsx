@@ -37,11 +37,12 @@ import GradualBlur from "@/components/react-bits/GradualBlur";
 import BlurText from "@/components/react-bits/BlurText";
 import LiquidEther from "@/components/react-bits/LiquidEther";
 import LaserFlow from "@/components/react-bits/LaserFlow";
+import BlurSlideshow from "@/components/syncrio/BlurSlideshow";
+import RetroAtom from "@/components/syncrio/RetroAtom";
 import { Toaster } from "@/components/ui/sonner";
 import { toast } from "sonner";
 import {
   ArrowRight,
-  Atom,
   AudioLines,
   Bell,
   BrainCircuit,
@@ -149,6 +150,44 @@ const workspaceNodes = [
   { icon: FileText, label: "Documents" },
 ];
 
+/**
+ * Hero slideshow placeholder slides — replace `content` with `{ src: "/your-image.jpg" }`
+ * to drop in real screenshots, GIFs, or video posters later. The component lives at
+ * `src/components/syncrio/BlurSlideshow.tsx` and blur-dissolves in place.
+ */
+const heroSlides = [
+  {
+    alt: "Syncrio sync core scene",
+    content: (
+      <div className="flex h-full w-full flex-col items-center justify-center bg-[radial-gradient(circle_at_50%_45%,rgba(106,14,196,0.35),rgba(8,8,14,0.96))] p-8 text-center">
+        <div className="font-mono text-[10px] uppercase tracking-[0.32em] text-signal-cyan">Slide 01 · Sync Core</div>
+        <div className="mt-3 font-display text-3xl text-atomic-cream sm:text-4xl">DEVICES CONVERGE.</div>
+        <p className="mt-3 max-w-md text-sm leading-7 text-atomic-muted">Drop your video, GIF, or screenshots here. The slideshow blurs and dissolves between frames in place.</p>
+      </div>
+    ),
+  },
+  {
+    alt: "Resource flow scene",
+    content: (
+      <div className="flex h-full w-full flex-col items-center justify-center bg-[radial-gradient(circle_at_50%_45%,rgba(34,211,238,0.22),rgba(8,8,14,0.96))] p-8 text-center">
+        <div className="font-mono text-[10px] uppercase tracking-[0.32em] text-signal-cyan">Slide 02 · Resource Flow</div>
+        <div className="mt-3 font-display text-3xl text-atomic-cream sm:text-4xl">RESOURCES MOVE WITH YOU.</div>
+        <p className="mt-3 max-w-md text-sm leading-7 text-atomic-muted">Files, links, notes, media — synced across desktop, mobile, tablet, and browser.</p>
+      </div>
+    ),
+  },
+  {
+    alt: "CHIP intelligence scene",
+    content: (
+      <div className="flex h-full w-full flex-col items-center justify-center bg-[radial-gradient(circle_at_50%_45%,rgba(168,85,247,0.32),rgba(8,8,14,0.96))] p-8 text-center">
+        <div className="font-mono text-[10px] uppercase tracking-[0.32em] text-signal-cyan">Slide 03 · CHIP Layer</div>
+        <div className="mt-3 font-display text-3xl text-atomic-cream sm:text-4xl">CHIP TURNS INTENT INTO ACTION.</div>
+        <p className="mt-3 max-w-md text-sm leading-7 text-atomic-muted">Say it once. Review what CHIP plans. Approve. Done.</p>
+      </div>
+    ),
+  },
+];
+
 function Index() {
   return (
     <div className="relative min-h-screen overflow-x-hidden text-atomic-white syncrio-page-bg">
@@ -164,6 +203,8 @@ function Index() {
         <CategorySection />
         <TrustSection />
         <EarlyAccessSection />
+        <FaqSection />
+        <FinalCtaSection />
       </main>
       <Footer />
     </div>
@@ -188,7 +229,7 @@ function NavBar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-border/80 bg-[oklch(0.145_0.012_289_/_0.72)] px-4 py-3 backdrop-blur-xl nav-glow sm:px-6">
         <a href="#top" className="flex items-center gap-3">
           <div className="relative flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-[oklch(0.178_0.016_290.359_/_0.84)]">
-            <ThreeLoopAtom className="h-6 w-6 text-signal-cyan" />
+            <RetroAtom className="h-7 w-7 text-signal-cyan" />
             <div className="absolute inset-0 rounded-full soft-pulse" />
           </div>
           <div>
@@ -227,8 +268,8 @@ function NavBar() {
 
 function HeroSection() {
   return (
-    <section id="top" className="relative z-10 px-4 pb-20 pt-10 sm:px-6 lg:px-8 lg:pb-28 lg:pt-16">
-      <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[minmax(0,1.02fr)_minmax(440px,0.98fr)]">
+    <section id="top" className="relative z-10 min-h-[calc(100vh-6rem)] w-full px-4 pb-24 pt-10 sm:px-6 lg:px-12 lg:pb-32 lg:pt-16">
+      <div className="mx-auto grid w-full max-w-[1600px] items-center gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(520px,1fr)]">
         <motion.div initial="hidden" animate="visible" variants={sectionReveal} className="relative">
           <div className="absolute -left-3 top-4 h-16 w-16 rounded-full starburst-purple opacity-40 blur-[0.5px]" />
           <Badge className="syncrio-badge relative mb-6 rounded-full px-4 py-2 font-mono text-[11px] uppercase tracking-[0.28em] shadow-none">
@@ -269,7 +310,7 @@ function HeroSection() {
           transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1], delay: 0.12 }}
           className="relative"
         >
-          <HeroReactor />
+          <HeroLaserStage />
         </motion.div>
       </div>
     </section>
@@ -329,6 +370,57 @@ function HeroForm() {
         <span>Send me early-access invitations and product transmissions.</span>
       </label>
     </form>
+  );
+}
+
+function HeroLaserStage() {
+  return (
+    <div className="relative mx-auto w-full max-w-[680px] lg:mr-0">
+      {/* Laser flow stage — pulled directly from the React Bits demo */}
+      <div className="relative h-[560px] overflow-hidden rounded-[28px] border border-white/8 bg-[#0a070f] sm:h-[620px]">
+        <LaserFlow
+          color="#6a0ec4"
+          horizontalBeamOffset={0.0}
+          verticalBeamOffset={0.05}
+          horizontalSizing={0.64}
+          verticalSizing={4.1}
+          wispDensity={2.9}
+          wispSpeed={32}
+          wispIntensity={7.6}
+          flowStrength={0.08}
+          fogIntensity={0.91}
+          fogScale={0.1}
+          fogFallSpeed={0.45}
+          decay={2.19}
+          falloffStart={0.77}
+        />
+        <div className="pointer-events-none absolute inset-0 syncrio-scanlines opacity-[0.14]" />
+
+        {/* Lower box outline — sits where the laser meets the floor */}
+        <div
+          className="absolute bottom-4 left-1/2 z-10 h-[44%] w-[88%] -translate-x-1/2 rounded-[22px] border-2 hud-dots"
+          style={{
+            borderColor: "oklch(0.529 0.249 319.033 / 0.55)",
+            boxShadow: "0 0 30px oklch(0.529 0.249 319.033 / 0.3), inset 0 0 40px oklch(0.529 0.249 319.033 / 0.15)",
+            background: "linear-gradient(180deg, rgba(8,7,14,0.55), rgba(8,7,14,0.85))",
+          }}
+        />
+
+        <div className="absolute left-4 top-4 z-10 flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.28em] text-signal-cyan backdrop-blur">
+          <span className="h-1.5 w-1.5 rounded-full bg-signal-cyan shadow-[0_0_8px_currentColor]" />
+          Laser Flow Live
+        </div>
+      </div>
+
+      {/* Slideshow box BELOW the laser flow — drop images/video into heroSlides */}
+      <div className="relative mt-5 overflow-hidden rounded-[24px] border border-white/10 syncrio-glass-card p-3">
+        <div className="mb-2 flex items-center justify-between px-2 font-mono text-[10px] uppercase tracking-[0.28em] text-atomic-muted">
+          <span>Transmission Reel</span>
+          <span>Blur dissolve · in place</span>
+        </div>
+        <BlurSlideshow slides={heroSlides} className="h-[220px]" intervalMs={4800} />
+      </div>
+    </div>
   );
 }
 
@@ -552,7 +644,24 @@ function LaserFlowSection() {
       </p>
 
       <div className="relative mx-auto mt-14 min-h-[640px] max-w-6xl overflow-hidden rounded-[34px] border border-white/8 bg-[linear-gradient(180deg,rgba(5,5,8,0.96),rgba(9,9,11,0.98))] p-6 sm:p-8">
-        <LaserFlow className="opacity-90" color="#5E0CAE" glowColor="#A40DC3" edgeColor="#22D3EE" />
+        <div className="pointer-events-none absolute inset-0">
+          <LaserFlow
+            color="#6a0ec4"
+            horizontalBeamOffset={0.5}
+            verticalBeamOffset={0.0}
+            horizontalSizing={0.64}
+            verticalSizing={4.1}
+            wispDensity={2.9}
+            wispSpeed={32}
+            wispIntensity={7.6}
+            flowStrength={0.08}
+            fogIntensity={0.91}
+            fogScale={0.1}
+            fogFallSpeed={0.45}
+            decay={2.19}
+            falloffStart={0.77}
+          />
+        </div>
         <div className="absolute inset-0 syncrio-scanlines opacity-[0.1]" />
 
         <div className="relative z-10 flex h-full flex-col justify-between gap-10">
@@ -691,7 +800,7 @@ function WorkspaceMesh() {
       <div className="absolute left-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/12 bg-[radial-gradient(circle,rgba(164,13,195,0.22)_0%,rgba(47,107,255,0.12)_44%,rgba(7,7,10,0.96)_76%)] core-glow">
         <div className="absolute inset-5 rounded-full border border-white/8" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-          <ThreeLoopAtom className="mb-3 h-8 w-8 text-signal-cyan" />
+          <RetroAtom className="mb-3 h-9 w-9 text-signal-cyan" />
           <span className="font-display text-[2rem] leading-none text-atomic-white">SYNCRIO</span>
           <span className="mt-1 font-mono text-[11px] uppercase tracking-[0.28em] text-atomic-muted">
             Workspace
@@ -1023,7 +1132,7 @@ function EarlyAccessSection() {
       </p>
 
       <div className="mx-auto mt-14 grid max-w-6xl gap-8 lg:grid-cols-[1fr_0.88fr]">
-        <form onSubmit={submitProfile} className="syncrio-glass-card rounded-[30px] p-6 sm:p-8">
+        <form onSubmit={submitProfile} className="syncrio-glass-card rounded-[30px] p-6 sm:p-8 lg:col-span-2 lg:max-w-3xl lg:mx-auto lg:w-full">
           <div className="grid gap-5">
             <Field label="Persona">
               <Select>
@@ -1104,11 +1213,36 @@ function EarlyAccessSection() {
             </Button>
           </div>
         </form>
+      </div>
+    </Section>
+  );
+}
 
-        <div className="space-y-8">
-          <FaqPanel />
-          <FinalCtaCard />
-        </div>
+function FaqSection() {
+  return (
+    <Section
+      id="faq"
+      eyebrow="Section 08 · Frequencies"
+      title="QUESTIONS"
+      accent="ANSWERED ON THE SAME FREQUENCY."
+    >
+      <div className="mx-auto max-w-4xl">
+        <FaqPanel />
+      </div>
+    </Section>
+  );
+}
+
+function FinalCtaSection() {
+  return (
+    <Section
+      id="signal"
+      eyebrow="Section 09 · Signal"
+      title="LESS SEARCHING."
+      accent="LESS SWITCHING. LESS FORGETTING."
+    >
+      <div className="mx-auto max-w-5xl">
+        <FinalCtaCard />
       </div>
     </Section>
   );
@@ -1168,17 +1302,10 @@ function FinalCtaCard() {
       <GradualBlur className="bottom-[-1rem] h-36" colorA="rgba(164,13,195,0.26)" colorB="rgba(34,211,238,0.12)" />
       <div className="relative z-10">
         <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.24em] text-atomic-muted neon-flicker">
-          <ThreeLoopAtom className="h-4 w-4 text-signal-cyan" />
+          <RetroAtom className="h-4 w-4 text-signal-cyan" spin={false} />
           Syncrio signal live
         </div>
-        <h3 className="font-display text-4xl leading-[0.94] text-atomic-cream sm:text-5xl">
-          LESS SEARCHING.
-          <br />
-          LESS SWITCHING.
-          <br />
-          LESS FORGETTING.
-        </h3>
-        <p className="mx-auto mt-5 max-w-lg text-base leading-8 text-atomic-muted sm:text-lg">
+        <p className="mx-auto max-w-2xl text-base leading-8 text-atomic-muted sm:text-lg">
           Join the early-access list and help shape the workspace that syncs your devices,
           connects your resources, and gives CHIP a place to help.
         </p>
@@ -1200,7 +1327,7 @@ function Footer() {
     <footer className="relative z-10 border-t border-white/8 px-4 py-10 sm:px-6 lg:px-8">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 sm:flex-row">
         <div className="flex items-center gap-3">
-          <ThreeLoopAtom className="h-5 w-5 text-signal-cyan" />
+          <RetroAtom className="h-6 w-6 text-signal-cyan" />
           <span className="font-display text-xl text-atomic-cream">SYNCRIO</span>
           <Separator orientation="vertical" className="h-4 bg-white/10" />
           <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-atomic-muted">
@@ -1275,7 +1402,7 @@ function Section({
 function ThreeLoopAtom({ className }: { className?: string }) {
   return (
     <div className={`relative ${className ?? ""}`}>
-      <Atom className="h-full w-full opacity-0" />
+      <span className="block h-full w-full opacity-0" />
       <span className="absolute inset-0 rounded-full border border-current opacity-90" />
       <span className="absolute inset-0 rounded-full border border-current opacity-70 [transform:rotate(58deg)_scaleX(1.18)]" />
       <span className="absolute inset-0 rounded-full border border-current opacity-65 [transform:rotate(-58deg)_scaleX(1.18)]" />
