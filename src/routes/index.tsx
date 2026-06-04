@@ -371,6 +371,57 @@ function HeroForm() {
   );
 }
 
+function HeroLaserStage() {
+  return (
+    <div className="relative mx-auto w-full max-w-[680px] lg:mr-0">
+      {/* Laser flow stage — pulled directly from the React Bits demo */}
+      <div className="relative h-[560px] overflow-hidden rounded-[28px] border border-white/8 bg-[#0a070f] sm:h-[620px]">
+        <LaserFlow
+          color="#6a0ec4"
+          horizontalBeamOffset={0.0}
+          verticalBeamOffset={0.05}
+          horizontalSizing={0.64}
+          verticalSizing={4.1}
+          wispDensity={2.9}
+          wispSpeed={32}
+          wispIntensity={7.6}
+          flowStrength={0.08}
+          fogIntensity={0.91}
+          fogScale={0.1}
+          fogFallSpeed={0.45}
+          decay={2.19}
+          falloffStart={0.77}
+        />
+        <div className="pointer-events-none absolute inset-0 syncrio-scanlines opacity-[0.14]" />
+
+        {/* Lower box outline — sits where the laser meets the floor */}
+        <div
+          className="absolute bottom-4 left-1/2 z-10 h-[44%] w-[88%] -translate-x-1/2 rounded-[22px] border-2 hud-dots"
+          style={{
+            borderColor: "oklch(0.529 0.249 319.033 / 0.55)",
+            boxShadow: "0 0 30px oklch(0.529 0.249 319.033 / 0.3), inset 0 0 40px oklch(0.529 0.249 319.033 / 0.15)",
+            background: "linear-gradient(180deg, rgba(8,7,14,0.55), rgba(8,7,14,0.85))",
+          }}
+        />
+
+        <div className="absolute left-4 top-4 z-10 flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.28em] text-signal-cyan backdrop-blur">
+          <span className="h-1.5 w-1.5 rounded-full bg-signal-cyan shadow-[0_0_8px_currentColor]" />
+          Laser Flow Live
+        </div>
+      </div>
+
+      {/* Slideshow box BELOW the laser flow — drop images/video into heroSlides */}
+      <div className="relative mt-5 overflow-hidden rounded-[24px] border border-white/10 syncrio-glass-card p-3">
+        <div className="mb-2 flex items-center justify-between px-2 font-mono text-[10px] uppercase tracking-[0.28em] text-atomic-muted">
+          <span>Transmission Reel</span>
+          <span>Blur dissolve · in place</span>
+        </div>
+        <BlurSlideshow slides={heroSlides} className="h-[220px]" intervalMs={4800} />
+      </div>
+    </div>
+  );
+}
+
 function HeroReactor() {
   const [sceneIndex, setSceneIndex] = useState(0);
   const scene = heroScenes[sceneIndex];
