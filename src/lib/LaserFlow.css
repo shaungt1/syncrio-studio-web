@@ -1,0 +1,5 @@
+.laser-flow-container {
+
+  position: relative;
+  pointer-events: none;
+}

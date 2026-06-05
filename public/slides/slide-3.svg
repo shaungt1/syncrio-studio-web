@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" fill="none">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101a14"/>
+      <stop offset="1" stop-color="#0a0a10"/>
+    </linearGradient>
+    <radialGradient id="glow3" cx="0.3" cy="0.1" r="0.8">
+      <stop offset="0" stop-color="#34d399" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#34d399" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg3)"/>
+  <rect width="1600" height="900" fill="url(#glow3)"/>
+  <g stroke="#ffffff" stroke-opacity="0.05">
+    <path d="M0 150H1600M0 300H1600M0 450H1600M0 600H1600M0 750H1600"/>
+    <path d="M200 0V900M400 0V900M600 0V900M800 0V900M1000 0V900M1200 0V900M1400 0V900"/>
+  </g>
+  <circle cx="70" cy="70" r="14" fill="#34d399"/>
+  <circle cx="110" cy="70" r="14" fill="#ffffff" fill-opacity="0.15"/>
+  <circle cx="150" cy="70" r="14" fill="#ffffff" fill-opacity="0.15"/>
+  <rect x="120" y="200" width="1360" height="300" rx="22" fill="#ffffff" fill-opacity="0.04" stroke="#34d399" stroke-opacity="0.3"/>
+  <polyline points="170,440 320,360 470,400 620,300 770,340 920,260 1070,300 1220,230 1370,270" fill="none" stroke="#34d399" stroke-opacity="0.7" stroke-width="6"/>
+  <polyline points="170,470 320,430 470,450 620,400 770,420 920,380 1070,400 1220,360 1370,380" fill="none" stroke="#22d3ee" stroke-opacity="0.5" stroke-width="6"/>
+  <text x="120" y="640" font-family="monospace" font-size="120" font-weight="700" fill="#ffffff" fill-opacity="0.9">03</text>
+  <text x="120" y="700" font-family="monospace" font-size="30" letter-spacing="8" fill="#34d399">SLIDE PLACEHOLDER — REPLACE IN /public/slides</text>
+</svg>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" fill="none">
+  <defs>
+    <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a1330"/>
+      <stop offset="1" stop-color="#0a0a10"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0.5" cy="0.1" r="0.8">
+      <stop offset="0" stop-color="#a40dc3" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#a40dc3" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg1)"/>
+  <rect width="1600" height="900" fill="url(#glow1)"/>
+  <g stroke="#ffffff" stroke-opacity="0.05">
+    <path d="M0 150H1600M0 300H1600M0 450H1600M0 600H1600M0 750H1600"/>
+    <path d="M200 0V900M400 0V900M600 0V900M800 0V900M1000 0V900M1200 0V900M1400 0V900"/>
+  </g>
+  <circle cx="70" cy="70" r="14" fill="#a40dc3"/>
+  <circle cx="110" cy="70" r="14" fill="#ffffff" fill-opacity="0.15"/>
+  <circle cx="150" cy="70" r="14" fill="#ffffff" fill-opacity="0.15"/>
+  <rect x="120" y="200" width="520" height="300" rx="22" fill="#ffffff" fill-opacity="0.04" stroke="#a40dc3" stroke-opacity="0.4"/>
+  <rect x="160" y="250" width="260" height="26" rx="13" fill="#ffffff" fill-opacity="0.25"/>
+  <rect x="160" y="300" width="440" height="16" rx="8" fill="#ffffff" fill-opacity="0.12"/>
+  <rect x="160" y="332" width="400" height="16" rx="8" fill="#ffffff" fill-opacity="0.12"/>
+  <rect x="160" y="364" width="360" height="16" rx="8" fill="#ffffff" fill-opacity="0.12"/>
+  <rect x="720" y="200" width="760" height="140" rx="22" fill="#ffffff" fill-opacity="0.04" stroke="#22d3ee" stroke-opacity="0.3"/>
+  <rect x="720" y="370" width="370" height="130" rx="22" fill="#ffffff" fill-opacity="0.04" stroke="#ffffff" stroke-opacity="0.12"/>
+  <rect x="1110" y="370" width="370" height="130" rx="22" fill="#ffffff" fill-opacity="0.04" stroke="#ffffff" stroke-opacity="0.12"/>
+  <text x="120" y="640" font-family="monospace" font-size="120" font-weight="700" fill="#ffffff" fill-opacity="0.9">01</text>
+  <text x="120" y="700" font-family="monospace" font-size="30" letter-spacing="8" fill="#22d3ee">SLIDE PLACEHOLDER — REPLACE IN /public/slides</text>
+</svg>

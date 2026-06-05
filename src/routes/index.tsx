@@ -36,7 +36,7 @@ import LightRays from "@/components/react-bits/LightRays";
 import GradualBlur from "@/components/react-bits/GradualBlur";
 import BlurText from "@/components/react-bits/BlurText";
 import LiquidEther from "@/components/react-bits/LiquidEther";
-import LaserFlow from "@/components/react-bits/LaserFlow";
+import { HeroSection } from "@/components/HeroSection";
 import { Toaster } from "@/components/ui/sonner";
 import { toast } from "sonner";
 import {
@@ -158,7 +158,6 @@ function Index() {
       <main>
         <HeroSection />
         <ProblemSection />
-        <LaserFlowSection />
         <WorkspaceSection />
         <ChipProofSection />
         <CategorySection />
@@ -203,9 +202,6 @@ function NavBar() {
           <a href="#problem" className="transition hover:text-atomic-white">
             Problem
           </a>
-          <a href="#laser-flow" className="transition hover:text-atomic-white">
-            Flow
-          </a>
           <a href="#workspace" className="transition hover:text-atomic-white">
             Workspace
           </a>
@@ -225,113 +221,6 @@ function NavBar() {
   );
 }
 
-function HeroSection() {
-  return (
-    <section id="top" className="relative z-10 px-4 pb-20 pt-10 sm:px-6 lg:px-8 lg:pb-28 lg:pt-16">
-      <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[minmax(0,1.02fr)_minmax(440px,0.98fr)]">
-        <motion.div initial="hidden" animate="visible" variants={sectionReveal} className="relative">
-          <div className="absolute -left-3 top-4 h-16 w-16 rounded-full starburst-purple opacity-40 blur-[0.5px]" />
-          <Badge className="syncrio-badge relative mb-6 rounded-full px-4 py-2 font-mono text-[11px] uppercase tracking-[0.28em] shadow-none">
-            <span className="mr-2 inline-flex h-2 w-2 rounded-full bg-[oklch(0.797_0.134_211.53)]" />
-            Atomic age AI for the overloaded human
-          </Badge>
-
-          <h1 className="max-w-3xl font-display text-[clamp(3rem,8vw,6.9rem)] leading-[0.92] text-atomic-cream text-shadow-syncrio">
-            STOP MANAGING <span className="syncrio-gradient-text">15 TOOLS</span>
-            <br />
-            JUST TO STAY <span className="syncrio-gradient-text">ORGANIZED</span>.
-          </h1>
-
-          <p className="mt-8 max-w-2xl text-lg leading-8 text-atomic-muted sm:text-xl">
-            Syncrio syncs your devices into one connected workspace, so your files, links, text,
-            media, and digital resources can move with you across the systems you already use.
-          </p>
-          <p className="mt-4 max-w-xl text-base font-medium text-atomic-white/88 sm:text-lg">
-            Add CHIP, and that synced workspace becomes intelligent.
-          </p>
-
-          <div className="mt-10 max-w-2xl">
-            <HeroForm />
-          </div>
-
-          <div className="mt-8 flex flex-wrap items-center gap-4 font-mono text-[11px] uppercase tracking-[0.24em] text-atomic-muted">
-            <span>Early access</span>
-            <span className="h-px w-6 bg-border" />
-            <span>No spam</span>
-            <span className="h-px w-6 bg-border" />
-            <span>Review &amp; permission controls built in</span>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 40, y: 14 }}
-          animate={{ opacity: 1, x: 0, y: 0 }}
-          transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1], delay: 0.12 }}
-          className="relative"
-        >
-          <HeroReactor />
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-function HeroForm() {
-  const [email, setEmail] = useState("");
-  const [consent, setConsent] = useState(true);
-  const [submitting, setSubmitting] = useState(false);
-
-  function onSubmit(event: React.FormEvent) {
-    event.preventDefault();
-    if (!/^\S+@\S+\.\S+$/.test(email)) {
-      toast.error("Enter a valid transmission address.");
-      return;
-    }
-    if (!consent) {
-      toast.error("Enable consent so we can send early-access transmissions.");
-      return;
-    }
-    setSubmitting(true);
-    window.setTimeout(() => {
-      setSubmitting(false);
-      setEmail("");
-      toast.success("Transmission received. You’re on the waitlist.");
-      document.getElementById("early-access")?.scrollIntoView({ behavior: "smooth" });
-    }, 900);
-  }
-
-  return (
-    <form onSubmit={onSubmit} className="space-y-4">
-      <div className="syncrio-glass-card rounded-[24px] p-2 sm:flex sm:items-center sm:gap-2">
-        <Input
-          type="email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          placeholder="your.transmission@frequency.com"
-          className="syncrio-input h-14 rounded-[18px] border-none bg-transparent px-5 text-base shadow-none focus-visible:ring-0"
-        />
-        <Button
-          type="submit"
-          disabled={submitting}
-          className="syncrio-cta mt-2 h-14 w-full rounded-[18px] px-6 font-mono text-xs uppercase tracking-[0.24em] sm:mt-0 sm:w-auto"
-        >
-          {submitting ? "Transmitting…" : "Join the waitlist"}
-          <ArrowRight className="ml-2 h-4 w-4" />
-        </Button>
-      </div>
-
-      <label className="flex items-start gap-3 pl-1 text-sm text-atomic-muted">
-        <Checkbox
-          checked={consent}
-          onCheckedChange={(checked) => setConsent(Boolean(checked))}
-          className="mt-0.5 border-border data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
-        />
-        <span>Send me early-access invitations and product transmissions.</span>
-      </label>
-    </form>
-  );
-}
-
 function HeroReactor() {
   const [sceneIndex, setSceneIndex] = useState(0);
   const scene = heroScenes[sceneIndex];
@@ -345,7 +234,7 @@ function HeroReactor() {
 
   return (
     <div className="relative mx-auto max-w-[620px] lg:mr-0">
-      <div className="pointer-events-none absolute -left-12 -top-10 h-24 w-24 rounded-full starburst-purple opacity-30" />
+      {/* <div className="pointer-events-none absolute -left-12 -top-10 h-24 w-24 rounded-full starburst-purple opacity-30" />
       <div className="pointer-events-none absolute right-4 top-[15%] h-16 w-16 rounded-full border border-white/10 bg-[radial-gradient(circle,rgba(34,211,238,0.18),transparent_70%)] blur-md" />
       <SideRays
         className="absolute inset-y-[6%] -right-[6%] left-[16%] rounded-[30px]"
@@ -356,7 +245,7 @@ function HeroReactor() {
         spread={1.2}
         origin="top-right"
         opacity={0.34}
-      />
+      /> */}
       <TiltedCard className="relative" glareClassName="opacity-100">
         <div className="syncrio-glass-card relative min-h-[460px] rounded-[28px] p-6 sm:p-7">
           <div className="pointer-events-none absolute inset-0 rounded-[28px] syncrio-scanlines opacity-[0.12]" />
@@ -501,6 +390,11 @@ function ProblemSection() {
       title="YOUR DIGITAL LIFE IS EVERYWHERE."
       accent="YOUR ATTENTION IS PAYING FOR IT."
     >
+      {/* Tool Chaos Reactor moved from hero to section 01 */}
+      <div className="relative mx-auto mb-14 max-w-[620px]">
+        <HeroReactor />
+      </div>
+
       <p className="mx-auto max-w-4xl text-center text-lg leading-8 text-atomic-muted sm:text-xl">
         Your files are on one device. Your links are buried in browser tabs. Your notes live in
         another app. Your media is scattered across folders, drives, chats, and downloads. The real
@@ -532,102 +426,6 @@ function ProblemSection() {
           ))}
         </div>
         <GradualBlur className="h-40" colorA="rgba(94,12,174,0.24)" colorB="rgba(34,211,238,0.08)" />
-      </div>
-    </Section>
-  );
-}
-
-function LaserFlowSection() {
-  return (
-    <Section
-      id="laser-flow"
-      eyebrow="Section 02 · Sync Flow"
-      title="FROM SCATTERED SIGNALS"
-      accent="TO ONE SYNCED WORKSPACE."
-    >
-      <p className="mx-auto max-w-4xl text-center text-lg leading-8 text-atomic-muted sm:text-xl">
-        Syncrio pulls your device resources into one accessible layer. Once your text, links,
-        files, media, and device context can move together, CHIP can help understand, route,
-        recommend, and automate what happens next.
-      </p>
-
-      <div className="relative mx-auto mt-14 min-h-[640px] max-w-6xl overflow-hidden rounded-[34px] border border-white/8 bg-[linear-gradient(180deg,rgba(5,5,8,0.96),rgba(9,9,11,0.98))] p-6 sm:p-8">
-        <LaserFlow className="opacity-90" color="#5E0CAE" glowColor="#A40DC3" edgeColor="#22D3EE" />
-        <div className="absolute inset-0 syncrio-scanlines opacity-[0.1]" />
-
-        <div className="relative z-10 flex h-full flex-col justify-between gap-10">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <Badge className="syncrio-badge rounded-full px-4 py-2 font-mono text-[10px] uppercase tracking-[0.28em] shadow-none">
-              Laser flow explainer
-            </Badge>
-            <div className="font-mono text-[11px] uppercase tracking-[0.28em] text-atomic-muted">
-              scattered resources → synced workspace → CHIP layer
-            </div>
-          </div>
-
-          <div className="mx-auto grid w-full max-w-5xl items-end gap-8 lg:grid-cols-[0.84fr_1.16fr]">
-            <div className="space-y-4">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.24em] text-signal-cyan">
-                <Sparkles className="h-3.5 w-3.5" />
-                Beam logic online
-              </div>
-              <h3 className="font-display text-4xl leading-[0.94] text-atomic-white sm:text-5xl">
-                Syncrio gathers the fragments first.
-              </h3>
-              <p className="max-w-xl text-base leading-7 text-atomic-muted sm:text-lg">
-                The sync layer gives every approved device resource a shared place to move, so CHIP
-                can work inside connected context instead of isolated windows.
-              </p>
-            </div>
-
-            <Dialog>
-              <DialogTrigger asChild>
-                <button type="button" className="relative rounded-[28px] syncrio-glass-card p-5 text-left transition-transform duration-300 hover:-translate-y-1 sm:p-6">
-                  <div className="absolute inset-0 rounded-[28px] syncrio-scanlines opacity-[0.12]" />
-                  <div className="relative rounded-[22px] border border-white/10 bg-[linear-gradient(180deg,rgba(8,8,14,0.92),rgba(4,4,8,0.98))] p-6">
-                    <div className="mb-4 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.28em] text-atomic-muted">
-                      <span>Retro transmission demo</span>
-                      <PlayCircle className="h-4 w-4 text-signal-cyan" />
-                    </div>
-                    <div className="relative min-h-[240px] overflow-hidden rounded-[20px] border border-white/8 bg-[radial-gradient(circle_at_50%_40%,rgba(164,13,195,0.22),transparent_34%),linear-gradient(180deg,rgba(9,9,12,0.92),rgba(7,7,10,0.98))]">
-                      <div className="absolute inset-0 syncrio-scanlines opacity-[0.18]" />
-                      <div className="absolute inset-x-[20%] top-[48%] h-px signal-line" />
-                      <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-                        <div className="rounded-full border border-white/10 bg-white/5 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.26em] text-atomic-muted">
-                          Coming soon
-                        </div>
-                        <h4 className="mt-5 font-display text-3xl text-atomic-cream">See Syncrio in motion.</h4>
-                        <p className="mt-3 max-w-md text-sm leading-7 text-atomic-muted sm:text-base">
-                          Coming soon: see Syncrio sync devices, resources, and CHIP actions in one
-                          flow.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </button>
-              </DialogTrigger>
-              <DialogContent className="max-w-2xl rounded-[28px] border-white/10 bg-[linear-gradient(180deg,rgba(10,10,14,0.96),rgba(5,5,8,0.98))] p-0 text-atomic-white">
-                <DialogHeader className="border-b border-white/8 px-6 py-5">
-                  <DialogTitle className="font-display text-3xl text-atomic-cream">Retro Transmission Demo</DialogTitle>
-                  <DialogDescription className="text-base leading-7 text-atomic-muted">
-                    This cinematic placeholder will become the WandaVision-style explainer showing Syncrio syncing devices, resources, and CHIP review-aware actions.
-                  </DialogDescription>
-                </DialogHeader>
-                <div className="p-6">
-                  <div className="rounded-[24px] border border-white/10 bg-[radial-gradient(circle_at_50%_35%,rgba(164,13,195,0.18),transparent_32%),linear-gradient(180deg,rgba(9,9,12,0.92),rgba(7,7,10,0.98))] p-8 text-center syncrio-scanlines">
-                    <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white/5">
-                      <PlayCircle className="h-7 w-7 text-signal-cyan" />
-                    </div>
-                    <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.28em] text-atomic-muted">Transmission placeholder</p>
-                    <p className="mt-4 text-base leading-8 text-atomic-muted">
-                      The future video slot is reserved here so the flow section already has the right framing, chrome treatment, and interactive affordance.
-                    </p>
-                  </div>
-                </div>
-              </DialogContent>
-            </Dialog>
-          </div>
-        </div>
       </div>
     </Section>
   );
@@ -673,21 +471,78 @@ function WorkspaceSection() {
 }
 
 function WorkspaceMesh() {
-  const positions = [
-    "left-[4%] top-[6%]",
-    "left-[28%] top-[0%]",
-    "right-[20%] top-[8%]",
-    "right-[0%] top-[28%]",
-    "right-[2%] bottom-[10%]",
-    "right-[24%] bottom-[0%]",
-    "left-[30%] bottom-[2%]",
-    "left-[4%] bottom-[14%]",
-    "left-[0%] top-[34%]",
-    "left-[16%] top-[22%]",
+  // Improved positions - better distributed to prevent overlap
+  const nodePositions = [
+    { x: 8, y: 8 },      // Desktop - top left
+    { x: 32, y: 2 },     // Mobile - top center-left
+    { x: 68, y: 10 },    // Tablet - top right
+    { x: 90, y: 32 },    // Browser - right upper
+    { x: 88, y: 68 },    // Files - right lower
+    { x: 64, y: 88 },    // Links - bottom right
+    { x: 36, y: 90 },    // Images - bottom center
+    { x: 8, y: 72 },     // Video - left lower
+    { x: 4, y: 48 },     // Audio - left middle (moved down to avoid overlap)
+    { x: 20, y: 28 },    // Documents - left upper inner
   ];
 
   return (
     <div className="relative mx-auto h-[440px] w-full max-w-[560px]">
+      {/* SVG layer for light rays - positioned absolutely to match container */}
+      <svg 
+        className="absolute inset-0 pointer-events-none" 
+        width="100%" 
+        height="100%" 
+        viewBox="0 0 100 100" 
+        preserveAspectRatio="none"
+      >
+        <defs>
+          <linearGradient id="lightRayGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="oklch(0.797 0.134 211.53)" stopOpacity="0.1" />
+            <stop offset="30%" stopColor="oklch(0.797 0.134 211.53)" stopOpacity="0.7" />
+            <stop offset="70%" stopColor="oklch(0.529 0.249 319.033)" stopOpacity="0.6" />
+            <stop offset="100%" stopColor="oklch(0.529 0.249 319.033)" stopOpacity="0.1" />
+          </linearGradient>
+          <filter id="lightGlow">
+            <feGaussianBlur stdDeviation="0.4" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+          {/* Mask to hide lines in the center circle area */}
+          <mask id="centerMask">
+            <rect width="100" height="100" fill="white"/>
+            <circle cx="50" cy="50" r="12" fill="black"/>
+          </mask>
+        </defs>
+        
+        {/* Draw lines from each node to center with mask applied */}
+        <g mask="url(#centerMask)">
+          {nodePositions.map((pos, index) => (
+            <motion.line
+              key={`ray-${index}`}
+              x1={pos.x}
+              y1={pos.y}
+              x2={50}
+              y2={50}
+              stroke="url(#lightRayGradient)"
+              strokeWidth="0.18"
+              strokeLinecap="round"
+              filter="url(#lightGlow)"
+              initial={{ pathLength: 0, opacity: 0 }}
+              whileInView={{ pathLength: 1, opacity: 0.85 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ 
+                duration: 0.9, 
+                delay: index * 0.08, 
+                ease: [0.22, 1, 0.36, 1] 
+              }}
+            />
+          ))}
+        </g>
+      </svg>
+
+      {/* Center workspace circle */}
       <div className="absolute left-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/12 bg-[radial-gradient(circle,rgba(164,13,195,0.22)_0%,rgba(47,107,255,0.12)_44%,rgba(7,7,10,0.96)_76%)] core-glow">
         <div className="absolute inset-5 rounded-full border border-white/8" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
@@ -699,49 +554,48 @@ function WorkspaceMesh() {
         </div>
       </div>
 
+      {/* Device nodes with hover interaction */}
       {workspaceNodes.map((node, index) => {
         const Icon = node.icon;
+        const pos = nodePositions[index];
+        
         return (
           <motion.div
             key={node.label}
             initial={{ opacity: 0, scale: 0.78, y: 14 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            whileHover={{ 
+              scale: 1.08, 
+              y: -4,
+              rotate: [0, -2, 2, 0],
+              transition: { 
+                duration: 0.3,
+                rotate: { duration: 0.4, ease: "easeInOut" }
+              }
+            }}
             viewport={{ once: true, amount: 0.45 }}
             transition={{ duration: 0.55, delay: index * 0.06 }}
-            className={`absolute ${positions[index]} flex w-[122px] flex-col items-center rounded-[18px] border border-white/8 bg-[linear-gradient(180deg,rgba(23,19,32,0.92),rgba(8,8,14,0.96))] px-3 py-3 text-center shadow-[0_18px_40px_-30px_rgba(164,13,195,0.7)]`}
+            style={{
+              left: `${pos.x}%`,
+              top: `${pos.y}%`,
+            }}
+            className="absolute flex w-[122px] -translate-x-1/2 -translate-y-1/2 cursor-pointer flex-col items-center rounded-[18px] border border-white/8 bg-[linear-gradient(180deg,rgba(23,19,32,0.92),rgba(8,8,14,0.96))] px-3 py-3 text-center shadow-[0_18px_40px_-30px_rgba(164,13,195,0.7)] transition-shadow hover:border-white/16 hover:shadow-[0_20px_50px_-25px_rgba(164,13,195,0.9),0_0_20px_rgba(151,200,255,0.3)]"
           >
-            <Icon className="mb-2 h-5 w-5 text-signal-cyan" />
+            <Icon className="mb-2 h-5 w-5 text-signal-cyan transition-colors group-hover:text-teal" />
             <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-atomic-white">
               {node.label}
             </span>
           </motion.div>
         );
       })}
-
-      {[
-        "left-[18%] top-[20%] w-[32%] rotate-[18deg]",
-        "left-[34%] top-[14%] w-[20%] rotate-[4deg]",
-        "right-[22%] top-[22%] w-[24%] -rotate-[8deg]",
-        "right-[14%] top-[38%] w-[18%] -rotate-[20deg]",
-        "right-[22%] bottom-[22%] w-[18%] rotate-[14deg]",
-        "left-[28%] bottom-[14%] w-[18%] -rotate-[18deg]",
-        "left-[10%] bottom-[24%] w-[22%] rotate-[6deg]",
-        "left-[8%] top-[38%] w-[20%] rotate-[-12deg]",
-      ].map((line) => (
-        <motion.div
-          key={line}
-          className={`absolute h-px ${line} signal-line`}
-          initial={{ scaleX: 0, opacity: 0 }}
-          whileInView={{ scaleX: 1, opacity: 0.9 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        />
-      ))}
     </div>
   );
 }
 
 function ChipProofSection() {
+  const [activeStep, setActiveStep] = useState<number>(-1);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
   const outputs = [
     {
       icon: CalendarClock,
@@ -764,6 +618,35 @@ function ChipProofSection() {
       body: "Context connected",
     },
   ];
+
+  const intentSteps = [
+    "Interpret the request inside shared context.",
+    "Route outputs into the synced workspace.",
+    "Keep review and permission in the loop.",
+  ];
+
+  // Sequential glow animation for intent routing cards
+  useEffect(() => {
+    if (hasAnimated) return;
+
+    // Wait for BlurText animation to complete (approximately 2.5 seconds)
+    const startDelay = setTimeout(() => {
+      setHasAnimated(true);
+      let currentStep = 0;
+
+      const cycleSteps = () => {
+        setActiveStep(currentStep);
+        currentStep = (currentStep + 1) % intentSteps.length;
+        
+        // Continue cycling through steps
+        setTimeout(cycleSteps, 1800); // Each step glows for 1.8 seconds
+      };
+
+      cycleSteps();
+    }, 2500);
+
+    return () => clearTimeout(startDelay);
+  }, [hasAnimated]);
 
   return (
     <Section
@@ -811,14 +694,28 @@ function ChipProofSection() {
                   <span>visible next steps</span>
                 </div>
                 <div className="space-y-4">
-                  {[
-                    "Interpret the request inside shared context.",
-                    "Route outputs into the synced workspace.",
-                    "Keep review and permission in the loop.",
-                  ].map((step) => (
-                    <div key={step} className="rounded-[18px] border border-white/8 bg-white/5 px-4 py-4 text-sm leading-7 text-atomic-muted">
+                  {intentSteps.map((step, index) => (
+                    <motion.div
+                      key={step}
+                      animate={{
+                        borderColor: activeStep === index 
+                          ? "oklch(0.797 0.134 211.53 / 0.6)" 
+                          : "oklch(1 0 0 / 0.08)",
+                        backgroundColor: activeStep === index
+                          ? "oklch(0.797 0.134 211.53 / 0.12)"
+                          : "oklch(1 0 0 / 0.05)",
+                        boxShadow: activeStep === index
+                          ? "0 0 30px rgba(151, 200, 255, 0.3), inset 0 1px 0 rgba(151, 200, 255, 0.1)"
+                          : "0 0 0px rgba(151, 200, 255, 0)",
+                      }}
+                      transition={{
+                        duration: 0.6,
+                        ease: "easeInOut"
+                      }}
+                      className="rounded-[18px] border px-4 py-4 text-sm leading-7 text-atomic-muted"
+                    >
                       {step}
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
@@ -1022,7 +919,7 @@ function EarlyAccessSection() {
         first and understand which device workflows matter most.
       </p>
 
-      <div className="mx-auto mt-14 grid max-w-6xl gap-8 lg:grid-cols-[1fr_0.88fr]">
+      <div className="mx-auto mt-14 flex max-w-5xl flex-col gap-12">
         <form onSubmit={submitProfile} className="syncrio-glass-card rounded-[30px] p-6 sm:p-8">
           <div className="grid gap-5">
             <Field label="Persona">
@@ -1105,10 +1002,31 @@ function EarlyAccessSection() {
           </div>
         </form>
 
-        <div className="space-y-8">
-          <FaqPanel />
-          <FinalCtaCard />
+        {/* Divider */}
+        <div className="relative flex items-center justify-center">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-white/10"></div>
+          </div>
+          <div className="relative bg-background px-4">
+            <div className="h-2 w-2 rounded-full bg-signal-cyan/40 blur-sm"></div>
+          </div>
         </div>
+
+        {/* FAQ Section */}
+        <FaqPanel />
+
+        {/* Divider */}
+        <div className="relative flex items-center justify-center">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-white/10"></div>
+          </div>
+          <div className="relative bg-background px-4">
+            <div className="h-2 w-2 rounded-full bg-signal-cyan/40 blur-sm"></div>
+          </div>
+        </div>
+
+        {/* Final CTA */}
+        <FinalCtaCard />
       </div>
     </Section>
   );
@@ -1247,8 +1165,13 @@ function Section({
   accent: string;
   children: React.ReactNode;
 }) {
+  const spacing =
+    id === "problem"
+      ? "pt-[clamp(17rem,34vw,31rem)] pb-20 lg:pb-28"
+      : "py-20 lg:py-28";
+
   return (
-    <section id={id} className="relative z-10 px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+    <section id={id} className={`relative z-10 px-4 sm:px-6 lg:px-8 ${spacing}`}>
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
@@ -1276,10 +1199,7 @@ function ThreeLoopAtom({ className }: { className?: string }) {
   return (
     <div className={`relative ${className ?? ""}`}>
       <Atom className="h-full w-full opacity-0" />
-      <span className="absolute inset-0 rounded-full border border-current opacity-90" />
-      <span className="absolute inset-0 rounded-full border border-current opacity-70 [transform:rotate(58deg)_scaleX(1.18)]" />
-      <span className="absolute inset-0 rounded-full border border-current opacity-65 [transform:rotate(-58deg)_scaleX(1.18)]" />
-      <span className="absolute left-1/2 top-1/2 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-current shadow-[0_0_14px_currentColor]" />
+      <span className="absolute left-1/2 top-1/2 h-[30%] w-[30%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-current shadow-[0_0_14px_currentColor]" />
     </div>
   );
 }
